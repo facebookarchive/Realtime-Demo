@@ -24,7 +24,9 @@ var Media = {
             			$(this).remove();
             		});
     		    } else {
-    		        $oldCube.attr('src', media.images.low_resolution.url);
+    		        $oldCube.css('background-image', 'url('+media.images.low_resolution.url+')');
+            		$('.location', $oldCube).html(media.location.name);
+            		$('.channel', $oldCube).html(media.meta.location);
     		    }
         	}); 
         });
