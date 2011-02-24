@@ -1,0 +1,48 @@
+h1
+	img(src="/static/images/logo.png")
+div#wrapper
+	!= partial('image', images)
+.cols
+	.col-1
+		h2 What is this page?
+		p
+			| The images above are being sent to you in real-time from Instagram
+			| users who geo-tag their posts. As the user presses the "done" button,
+			| Instagram's servers notify this independent server of a new photo
+			| through a simple web hook.
+		p
+			| Using Instagram's new real-time updates API, any developer can subscribe
+			| to new photos from a variety of sources.
+			| In this demo, we've subscribed to a handful of city-centers with a radius
+			| of 5km. This means that Instagram will notify this server every time an
+			| Instagram user tags their photo with a location within 5km of the city
+			| center.
+		p
+			| If you happen to live in: Austin, Boston, Chicago, Columbus, Detroit, Hong Kong, Houston, Kyoto, Las Vegas, London, Los Angeles, Palo Alto, Philadelphia, Phoenix, Rio de Janeiro, Rome, San Antonio, San Diego, San Jose, Sao Paulo, Seattle, Seoul or Singapore
+			| you should try posting for yourself. Simply take a photo with Instagram,
+			| tag it with a location, and then post it. Watch the page to see your photo
+			| show up instantaneously.
+	.col-2
+		h2 What are real-time updates?
+		p
+			| Real-time updates allow Instagram to notify developers when users post new
+			| photos. Of course, having a firehose of data would be a bit overwhelming
+			| for most, so we've made it extremely easy for developers to subscribe to
+			| new photos posted that meet certain criteria.
+		p
+			| Developers can subscribe to new photos taken by users, on tags, from a place, or a specific geography.
+			| By subscribing, developers can receive notifications the instant new photos are posted
+			| instead of relying upon antiquated polling methods.
+		h2 How do you create subscriptions?
+		p
+			| First, you need to register for a developer account at the
+			a(href="http://instagram.com/developer/") Instagram Developer Center
+			| then review the
+			a(href="http://instagram.com/developer/realtime/") real-time developer documentation.
+			| You'll see that subscribing is as easy as issuing a single curl command.
+		h2 Want to learn more?
+		p
+			| Go take a look at the 
+			a(href="http://instagram.com/developer/") documentation
+			| or browse
+			a(href="http://github.com/Instagram") the source for this site.

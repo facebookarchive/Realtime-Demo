@@ -1,0 +1,84 @@
+Instagram Real-time API Demo App
+
+This source is meant to be a very simple implementation of a server that accepts updates from Instagram's real-time updates API.
+
+Here's how to get it working:
+
+NOTE: YOU MUST RUN YOUR SERVER ON A PUBLICLY ACCESSIBLE PORT SO THAT THE
+INSTAGRAM SERVERS CAN POST TO YOUR CALLBACK URL. RUNNING IT LOCALLY WON'T WORK
+WITHOUT USING SOMETHING LIKE LOCALTUNNEL TO EXPOSE A PORT:
+https://github.com/progrium/localtunnel/
+
+
+1) Install Node.js 
+
+curl -O http://nodejs.org/dist/node-v0.4.1.tar.gz
+tar xvf node-v0.4.1.tar.gz
+./configure
+sudo make && sudo make install
+
+2) Install Redis
+
+curl -O http://redis.googlecode.com/files/redis-2.2.1.tar.gz
+tar xvf redis-2.2.1.tar.giz
+./configure
+sudo make && sudo make install
+
+3) Run Redis
+
+redis-server conf/redis.conf
+
+3) Install NPM (Node package manager)
+
+curl http://npmjs.org/install.sh | sh
+
+or:
+
+git clone http://github.com/isaacs/npm.git
+cd npm
+sudo make install
+
+4) Install required node libraries
+
+sudo npm install redis
+sudo npm install socket.io 
+sudo npm install express
+sudo npm install jade
+
+5) Add your client_id and client_secret to settings.js
+
+6) Run the server
+
+node server.js
+
+Navigate to http://your-server:3000/ and you should see a blank page.
+
+7) Create a geography subscription. Here's sample code for Las Vegas:
+
+curl -F 'client_id=YOUR-CLIENT-ID' \
+     -F 'client_secret=YOUR-CLIENT-SECRET' \
+     -F 'object=geography' \
+     -F 'aspect=media' \
+     -F 'lat=36.114646' \
+     -F 'lng=-115.172816' \
+     -F 'radius=5000' \
+     -F 'callback_url=http://your-server:3000/callbacks/geo/las-vegas/' \
+     https://api.instagram.com/v1/subscriptions/
+
+Make sure to replace client_id and client_secret with your own. Also, it's not required to run your server at port 3000, but that's the standard node port ;)
+
+If you're lucky, someone will take a photo in Las Vegas, and it will pop up on your screen at the same moment they post the photo.
+
+You can also experiment with other subscriptions too. There's no reason, say you can't subscribe to London as well:
+
+curl -F 'client_id=YOUR-CLIENT-ID' \
+     -F 'client_secret=YOUR-CLIENT-SECRET' \
+     -F 'object=geography' \
+     -F 'aspect=media' \
+     -F 'lat=51.500152' \
+     -F 'lng=-0.126236' \
+     -F 'radius=5000' \
+     -F 'callback_url=http://your-server:3000/callbacks/geo/london/' \
+     https://api.instagram.com/v1/subscriptions/
+
+Notice that the slug in the URL after /geo/ becomes the name we display with the image when it comes in.

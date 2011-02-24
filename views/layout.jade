@@ -1,0 +1,15 @@
+!!! 5
+html
+	head
+		title Instagram - Real-time updates demo
+		link(rel="stylesheet", href="/static/styles/reset.css", type="text/css")
+		link(rel="stylesheet", href="/static/styles/master.css", type="text/css")
+		script(src="/socket.io/socket.io.js", type="text/javascript")
+		script(src="/static/scripts/jquery-1.5.min.js", type="text/javascript")
+		script(src="/static/scripts/master.js", type="text/javascript")
+		:javascript
+			| socket.connect();
+			| $(document).ready(Media.positionAll);
+	body
+		#wrap
+			!{body}

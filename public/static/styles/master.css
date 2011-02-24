@@ -1,0 +1,147 @@
+/* @override http://localhost:3000/static/styles/master.css */
+
+body {
+	font-family: "Helvetica Neue", Helvetica;
+	font-size: 100%;
+	background-color: #222;
+}
+
+#wrap {
+	width: 1040px;
+	margin: 0 auto;
+}
+
+p {
+	font-size: .8125em;
+	line-height: 18px;
+	color:  #aaa;
+	font-weight: lighter;
+	margin-bottom: 18px;
+}
+
+h1 {
+	text-align: center;
+}
+h1 img {
+	margin-top: 18px;
+	margin-bottom: 15px;
+}
+
+h2 {
+	color: #eee;
+	font-size: 1.25em;
+	font-weight: 100;
+	letter-spacing: 1px;
+	line-height: 27px;
+	margin-bottom: 9px;
+}
+a {
+	color:  #eee;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+.cols {
+	padding: 20px 10px;
+}
+.col-1, .col-2 {
+	float: left;
+	margin-right: 20px;
+}
+.col-1 {
+	width: 326px;
+}
+.col-2 {
+	width: 652px;
+}
+
+/* @group Cubes */
+
+#wrapper {
+	height: 600px;
+	width: 1000px;
+	-webkit-perspective: 800;
+	background: #000;
+	padding: 10px;
+	-webkit-border-radius: 10px;
+	border-bottom: 1px solid #333;
+}
+
+.cube {
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.cube span {
+  background: rgba(0, 0, 0, .9);
+  padding: 0 .33em;
+  position:absolute;
+  font-size: .9em; /* 13/10 */
+  line-height: 1.5em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.cube .location {
+  right: 0;
+  bottom: 3px;
+}
+.cube .channel {
+  right: 0;
+  bottom: 17px;
+  font-weight:bold;
+}
+.container {
+	position: absolute;
+	height: 200px;
+	width: 200px;
+	z-index: 100;
+	font-size: .625em; /* 10/16 */
+}
+
+.container.animating {
+	-webkit-transform: translateZ(-10em);
+	-webkit-transform-style: preserve-3d;
+	z-index: -100;
+}
+
+.in, .out {
+	-webkit-animation-duration: .75s;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-transform-origin: 50% 50% -10em;
+	-webkit-backface-visibility: hidden;
+}
+.cube img {
+	height: 100%;
+	width: 100%;
+}
+.cube.in {
+	-webkit-animation-name: cubeInFromRight;
+}
+
+.cube.out {
+	-webkit-animation-name: cubeOutToLeft;
+}
+
+@-webkit-keyframes cubeInFromRight {
+	from { -webkit-transform: rotateX(90deg);
+	}
+	
+	to {
+		-webkit-transform: rotateX(0deg);
+	}
+}
+@-webkit-keyframes cubeOutToLeft {
+	from { -webkit-transform: rotateX(0deg);
+	}
+
+	to {
+		-webkit-transform: rotateX(-90deg);
+	}
+}
+
+/* @end */
