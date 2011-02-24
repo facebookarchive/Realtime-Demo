@@ -78,7 +78,7 @@ a:hover {
 	left: 0px;
 }
 .cube span {
-  background: rgba(0, 0, 0, .9);
+  background: #000;
   padding: 0 .33em;
   position:absolute;
   font-size: .9em; /* 13/10 */
