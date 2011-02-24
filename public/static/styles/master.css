@@ -67,6 +67,7 @@ a:hover {
 	padding: 10px;
 	-webkit-border-radius: 10px;
 	border-bottom: 1px solid #333;
+	position: relative;
 }
 
 .cube {
