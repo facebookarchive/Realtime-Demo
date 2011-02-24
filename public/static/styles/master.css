@@ -146,3 +146,8 @@ a:hover {
 }
 
 /* @end */
+
+/* IE PNG */
+img {
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(...);
+}
