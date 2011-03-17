@@ -9,51 +9,68 @@ INSTAGRAM SERVERS CAN POST TO YOUR CALLBACK URL. RUNNING IT LOCALLY WON'T WORK
 WITHOUT USING SOMETHING LIKE LOCALTUNNEL TO EXPOSE A PORT:
 https://github.com/progrium/localtunnel/
 
+1) Install Needed Resources (this is for debian, adapt as necessary for others)
 
-1) Install Node.js 
+sudo apt-get install g++ curl libssl-dev apache2-utils git-core
 
-curl -O http://nodejs.org/dist/node-v0.4.1.tar.gz
-tar xvf node-v0.4.1.tar.gz
+2) Install Node.js 
+
+curl -O http://nodejs.org/dist/node-v0.4.2.tar.gz
+tar xvf node-v0.4.2.tar.gz
+cd node-v0.4.2
+
+or:
+
+git clone git://github.com/joyent/node.git
+cd node
+
+then:
+
 ./configure
 sudo make && sudo make install
 
-2) Install Redis
+3) Install Redis
 
-curl -O http://redis.googlecode.com/files/redis-2.2.1.tar.gz
-tar xvf redis-2.2.1.tar.giz
-./configure
+curl -O http://redis.googlecode.com/files/redis-2.2.2.tar.gz
+tar xvf redis-2.2.2.tar.giz
+cd redis-2.2.2
 sudo make && sudo make install
 
-3) Run Redis
-
-redis-server conf/redis.conf
-
-3) Install NPM (Node package manager)
+4) Install NPM (Node package manager)
 
 curl http://npmjs.org/install.sh | sh
 
 or:
 
-git clone http://github.com/isaacs/npm.git
+git clone git://github.com/isaacs/npm.git
 cd npm
 sudo make install
 
-4) Install required node libraries
+5) Install Required Node Libraries
 
 sudo npm install redis
 sudo npm install socket.io 
 sudo npm install express
 sudo npm install jade
 
-5) Add your client_id and client_secret to settings.js
+6) Install this Demo App
 
-6) Run the server
+git clone git://github.com/Instagram/Realtime-Demo.git
+cd Realtime-Demo
+
+7) Run Redis from the Demo App
+
+redis-server conf/redis.conf
+
+8) Add your client_id and client_secret to settings.js
+
+9) Run the Server
 
 node server.js
 
 Navigate to http://your-server:3000/ and you should see a blank page.
 
-7) Create a geography subscription. Here's sample code for Las Vegas:
+10) Create a Geography Subscription. Here's sample code for Las Vegas:
 
 curl -F 'client_id=YOUR-CLIENT-ID' \
      -F 'client_secret=YOUR-CLIENT-SECRET' \
@@ -64,6 +81,7 @@ curl -F 'client_id=YOUR-CLIENT-ID' \
      -F 'radius=5000' \
      -F 'callback_url=http://your-server:3000/callbacks/geo/las-vegas/' \
      https://api.instagram.com/v1/subscriptions/
+
 
 Make sure to replace client_id and client_secret with your own. Also, it's not required to run your server at port 3000, but that's the standard node port ;)
 
