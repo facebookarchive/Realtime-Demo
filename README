@@ -10,7 +10,7 @@ WITHOUT USING SOMETHING LIKE LOCALTUNNEL TO EXPOSE A PORT:
 https://github.com/progrium/localtunnel/
 
 
-1) Install Node.js 
+1) Install Node.js
 
 curl -O http://nodejs.org/dist/node-v0.4.1.tar.gz
 tar xvf node-v0.4.1.tar.gz
@@ -20,7 +20,7 @@ sudo make && sudo make install
 2) Install Redis
 
 curl -O http://redis.googlecode.com/files/redis-2.2.1.tar.gz
-tar xvf redis-2.2.1.tar.giz
+tar xvf redis-2.2.1.tar.gz
 ./configure
 sudo make && sudo make install
 
@@ -41,7 +41,7 @@ sudo make install
 4) Install required node libraries
 
 sudo npm install redis
-sudo npm install socket.io 
+sudo npm install socket.io
 sudo npm install express
 sudo npm install jade
 
